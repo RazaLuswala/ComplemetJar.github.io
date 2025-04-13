@@ -1,0 +1,80 @@
+
+body {
+  background-image: url('Flower4.JPG');
+  background-size: cover;           // Stretches to fill screen
+  background-position: center;      // Keeps image centered
+  background-repeat: no-repeat;     // Prevents tiling
+  background-attachment: fixed;     // Background stays still while scrolling
+
+  font-family: 'Segoe UI', sans-serif;
+  /*background: #ffd6e8;  Fallback soft pink background */
+  color: #333;         /* Default font color */
+
+  /* If your image is dark, change to light font: */
+  /* color: white; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(1px);
+  z-index: -1;
+}
+
+.jar {
+  background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 0 10px rgba(255, 182, 193, 0.4); /* 👈 new glow */
+  border: 3px solid rgba(255, 182, 193, 0.4); /* 👈 soft pink border */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0559f;
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.flowers {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
