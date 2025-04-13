@@ -1,10 +1,10 @@
-
 body {
-  background-image: url('/Flower4.jpg');
+  /*background-image: url('Flower4.JPG');
   background-size: cover;           // Stretches to fill screen
   background-position: center;      // Keeps image centered
   background-repeat: no-repeat;     // Prevents tiling
-  background-attachment: fixed;     // Background stays still while scrolling
+  background-attachment: fixed;     // Background stays still while scrolling 
+  */
 
   font-family: 'Segoe UI', sans-serif;
   /*background: #ffd6e8;  Fallback soft pink background */
@@ -19,7 +19,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
 }
 
@@ -33,6 +33,36 @@ body::before {
   backdrop-filter: blur(1px);
   z-index: -1;
 }
+
+.background-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* pushes it to the back */
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1; /* content appears over the background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
 
 .jar {
   background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
