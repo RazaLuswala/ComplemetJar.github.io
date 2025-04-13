@@ -1,6 +1,6 @@
 
 body {
-  background-image: url('ComplementJar.github.io/Flower4.jpg');
+  background-image: url('/Flower4.jpg');
   background-size: cover;           // Stretches to fill screen
   background-position: center;      // Keeps image centered
   background-repeat: no-repeat;     // Prevents tiling
