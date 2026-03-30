@@ -1,7 +1,50 @@
-// ─── 100 Compliments ─────────────────────────────────────
 const compliments = [
-  // Original & refined
-  "You have the kindest soul nobody truly deserves.",
+  "You have the kindest soul that no body deserves.",
+  "Your smile can light up all the darkness that exixts.",
+  "You are pure sunshine on a cloudy day.",
+  "You’re the kind of person people write poetry about, such as me.",
+  "You make ordinary moments special.",
+  "You bring warmth wherever you go.",
+  "You are effortlessly graceful.",
+  "You have the most calming presence.",
+  "Your modesty makes you glow the most.",
+  "The way you care is truly rare.",
+  "You make 'being kind' looks easy.",
+  "You’re more lovely than the word ‘lovely’ itself.",
+  "You handle everything with such politeness and grace.",
+  "You inspire calm in chaos.",
+  "You have a voice that soothes storms.",
+  "You listen like you really hear people.",
+  "You are the definition of soft strength.",
+  "You are elegance in human form.",
+  "Your sincerity is like poetry.",
+  "You make silence feel beautiful.",
+  "You make the world a little softer just by existing.",
+  "You are the first page of everyones book",
+  "You radiate a type of kindness that makes people believe again.",
+  "You are what healing would look like if it had a face.",
+  "You’re the reason some people still believe in good.",
+  "You are the gentle reminder the world needs.",
+  "You carry a grace not taught, but born from love.",
+  "Your voice is the kind that echoes in people’s minds.",
+  "You’re a safe place in a noisy world.",
+  "You are moonlight wrapped in human form.",
+  "You’re not just kind—you’re kindness itself.",
+  "No Star can outshine the spark of your eyes",
+  "You are the sun which is a need of this planet",
+  "You shine in ways words can’t quite hold.",
+  "You wear humility, peace, kindness like a crown.",
+  "You are a masterpice none artist can draw.",
+  "You voice is sweeter than the sweetness in the world combined",
+  "Your silence is more special than the silence of early morning",
+  "You see the good when others forget to look.",
+  "Everything you touch becomes gold ",
+  "You are the defination of a wonderfull human being",
+  "You are the rare type of beautiful that grows deeper the longer one knows you.",
+  "You are deeper than all the ocean's depth",
+  "No algorithm can make people understand you",
+  "No girl can match the beauty you hold",
+   "You have the kindest soul nobody truly deserves.",
   "Your smile can light up every darkness that exists.",
   "You are pure sunshine on a cloudy day.",
   "You're the kind of person people write poetry about.",
@@ -102,10 +145,48 @@ const compliments = [
   "Even the way you disagree is kind.",
   "You have a gift for making people feel at home.",
   "You are rare in all the best ways.",
+  // Add up to 200 compliments here later 🌷
 ];
 
-function showCompliment() {
-  const index = Math.floor(Math.random() * compliments.length);
-  document.getElementById('compliment').textContent = compliments[index];
+let count = 0;
+
+// ─── Floating petals ─────────────────────────────────────
+(function() {
+  const colors = ['#f9a8d4','#e879f9','#c084fc','#fda4af','#fbbf24','#f0abfc'];
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.cssText = `
+      left: ${Math.random()*100}%;
+      width: ${5 + Math.random()*7}px;
+      height: ${5 + Math.random()*7}px;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration: ${9 + Math.random()*12}s;
+      animation-delay: ${Math.random()*14}s;
+      top: -20px;
+    `;
+    document.body.appendChild(p);
+  }
+})();
+
+
+function openJar() {
+  const text = document.getElementById("compliment");
+
+  // fade out
+  text.style.opacity = 0;
+  text.style.transform = "translateY(10px)";
+
+  setTimeout(() => {
+    const randomIndex = Math.floor(Math.random() * compliments.length);
+    text.innerText = compliments[randomIndex];
+
+    text.style.opacity = 1;
+    text.style.transform = "translateY(0)";
+
+    count++;
+    document.getElementById("count").innerText = count;
+
+  }, 300);
 }
 
