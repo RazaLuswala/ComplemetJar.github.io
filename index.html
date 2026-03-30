@@ -1,57 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rimsha's Compliment Jar 💖</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+   <div class="background-wrapper">
+      <img src="Flower4.jpg" alt="Background" class="background-img">
+   <div class="content-overlay">
+   <div class="flowers">🌸 🌷 🌼 🌺 🌹</div>
 
-<div class="bg-layer"></div>
-<img class="bg-img" src="Flower4.jpg" alt="" />
-<canvas id="particles"></canvas>
+   <div class="jar">
+    <h1>🌸 Rimsha's Compliment Jar 🎁</h1>
+    <p id="compliment">Click the button for Complement</p>
+    <button onclick="showCompliment()">💌 Click Me (∩^o^)⊃━☆</button>
+    <footer>Made just for you by Rahila 💕</footer>
+   </div>
 
-<div class="page">
-
-  <div class="header">
-    <span class="jar-icon">🫙</span>
-    <h1 class="main-title">Rimsha's Compliment Jar</h1>
-    <div class="main-sub">A Small Compliment, every single time 💖</div>
+   <div class="flowers">🌹 🌺 🌼 🌷 🌸</div>
   </div>
+ </div>
 
-  <div class="jar-card">
-
-    <div class="compliment-wrap">
-      <p class="compliment-text compliment-placeholder" id="compliment">
-        Open the jar and discover something beautiful… 🌸
-      </p>
-    </div>
-
-    <div class="ornament">
-      <div class="ornament-line"></div>
-      <div class="ornament-dot"></div>
-      <div class="ornament-line"></div>
-    </div>
-
-    <div class="btn-wrap">
-      <button class="jar-btn" onclick="showCompliment()">
-        💌 Open the Jar
-      </button>
-    </div>
-  </div>
-
-  <div class="flowers-row">
-    <span>🌸</span><span>🌷</span><span>🌼</span><span>✨</span>
-    <span>🌺</span><span>🌹</span><span>💫</span>
-  </div>
-
-  <div class="footer">Made just for you — by Rahila 💕</div>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
