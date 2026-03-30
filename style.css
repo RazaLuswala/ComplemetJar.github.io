@@ -38,7 +38,7 @@ body::before {
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .background-img {
@@ -65,37 +65,46 @@ body::before {
 
 
 .jar {
-  background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  /*background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 0 10px rgba(255, 182, 193, 0.4); /* 👈 new glow */
   border: 3px solid rgba(255, 182, 193, 0.4); /* 👈 soft pink border */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
   max-width: 500px;
   width: 90%;
   margin: 20px auto;
 }
 
+
 button {
-  background-color: #ff69b4;
-  color: white;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
   border: none;
-  padding: 15px 25px;
-  border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 20px;
-  transition: background 0.3s ease;
+
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+
+  box-shadow: 0 0 20px rgba(255,118,156,0.7);
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #e0559f;
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255,118,156,1);
 }
 
 footer {
   margin-top: 30px;
-  font-size: 0.9rem;
-  color: #888;
+  font-size: 0.95rem;
+  animation: gradientBG 10s ease infinite  ;
+  color: #511253;
 }
 
 .flowers {
@@ -104,7 +113,60 @@ footer {
   animation: float 3s ease-in-out infinite;
 }
 
+
+/* ── Floating petals ── */
+.petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 50% 0 50% 0;
+  animation: petalFall linear infinite;
+  opacity: 0;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-30px) translateX(0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.55; }
+  92%  { opacity: 0.3; }
+  100% { transform: translateY(105vh) translateX(40px) rotate(600deg); opacity: 0; }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+
+/* 💌 Text animation */
+#compliment {
+  margin: 40px 0;
+  font-size: 1.2rem;
+  min-height: 60px;
+  font-style: italic;
+  color: #5e1537;
+
+  /* 🌸 Beautiful font */
+  font-family: 'Playfair Display', serif;
+
+  /* ✨ Soft shine/glow */
+  text-shadow: 0 0 5px rgba(255, 182, 193, 0.6),
+              0 0 10px rgba(255, 105, 180, 0.4);
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
