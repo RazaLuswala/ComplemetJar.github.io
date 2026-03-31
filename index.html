@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rimsha's Compliment Jar 💖</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <div class="background-wrapper">
-      <img src="Flower4.jpg" alt="Background" class="background-img">
-  <div class="content-overlay">
-  <div class="flowers">🌸 🌷 🌼 🌺 🌹</div>
 
-  <div class="jar">
-    <h1>🌸 Rimsha's Compliment Jar 🎁</h1>
-    <p id="compliment">Click the button for Complement</p>
-    <button onclick="openJar()">💌 Click Me (∩^o^)⊃━☆</button>
-    <footer>Made just for you by Rahila 💕</footer>
-  </div>
-  
+    <!-- CSS corner flowers — top left (dark red roses like the photo) -->
+    <div class="bg-flower tl-1">🌹</div>
+    <div class="bg-flower tl-2">🌸</div>
+    <div class="bg-flower tl-3">🌺</div>
 
-  <div class="flowers">🌹 🌺 🌼 🌷 🌸</div>
+    <!-- Top right (leaf + flower like the photo) -->
+    <div class="bg-flower tr-1">🍃</div>
+    <div class="bg-flower tr-2">🌿</div>
+    <div class="bg-flower tr-3">🌹</div>
+
+    <!-- Bottom corners — softer, more transparent -->
+    <div class="bg-flower bl-1">🌷</div>
+    <div class="bg-flower bl-2">🌸</div>
+    <div class="bg-flower br-1">🌺</div>
+    <div class="bg-flower br-2">🌼</div>
+
+    <!-- Scattered tiny accent dots injected by JS -->
+
+    <!-- Floating petals injected by JS -->
+
+    <div class="content-overlay">
+
+      <div class="flowers">
+        <span>🌸</span><span>🌷</span><span>🌼</span><span>🌺</span><span>🌹</span>
+      </div>
+
+      <div class="jar">
+        <h1>🌸 Rimsha's Compliment Jar 🎁</h1>
+        <div class="compliment-wrap">
+          <p id="compliment" class="compliment-placeholder">Click the button for a compliment 💌</p>
+        </div>
+        <button onclick="showCompliment()">💌 Click Me (∩^o^)⊃━☆</button>
+        <footer>Made just for you by Rahila 💕</footer>
+      </div>
+
+      <div class="flowers flowers-bottom">
+        <span>🌹</span><span>🌺</span><span>🌼</span><span>🌷</span><span>🌸</span>
+      </div>
+
+    </div>
   </div>
-</div>
 
   <script src="script.js"></script>
 </body>
