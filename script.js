@@ -1,3 +1,4 @@
+// ─── 100 Compliments ─────────────────────────────────────
 const compliments = [
   "You have the kindest soul that no body deserves.",
   "Your smile can light up all the darkness that exixts.",
@@ -145,10 +146,91 @@ const compliments = [
   "Even the way you disagree is kind.",
   "You have a gift for making people feel at home.",
   "You are rare in all the best ways.",
-  // Add up to 200 compliments here later 🌷
 ];
 
-let count = 0;
+let lastIndex = -1;
+
+function showCompliment() {
+  const el = document.getElementById('compliment');
+
+  // Fade out
+  el.classList.remove('pop');
+  el.classList.add('hidden');
+  el.classList.remove('compliment-placeholder');
+
+  setTimeout(() => {
+    let idx;
+    do { idx = Math.floor(Math.random() * compliments.length); }
+    while (idx === lastIndex && compliments.length > 1);
+    lastIndex = idx;
+
+    el.textContent = compliments[idx];
+    el.classList.remove('hidden');
+    el.classList.add('pop');
+
+    spawnSparkles();
+  }, 320);
+}
+
+// ─── Sparkle burst on button click ───────────────────────
+function spawnSparkles() {
+  const btn = document.querySelector('button');
+  const rect = btn.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+
+  for (let i = 0; i < 8; i++) {
+    const dot = document.createElement('div');
+    const angle = (i / 8) * Math.PI * 2;
+    const dist = 44 + Math.random() * 36;
+    const size = 5 + Math.random() * 5;
+    const colors = ['#ff69b4','#ffb6c1','#ffd700','#ff85c8','#ff4da6','#ffe066','#ff99cc'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    dot.style.cssText = `
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      width: ${size}px;
+      height: ${size}px;
+      border-radius: 50%;
+      background: ${color};
+      left: ${cx}px;
+      top: ${cy}px;
+      transform: translate(-50%, -50%);
+      transition: left 0.5s ease-out, top 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 1;
+    `;
+    document.body.appendChild(dot);
+
+    requestAnimationFrame(() => {
+      dot.style.left    = cx + Math.cos(angle) * dist + 'px';
+      dot.style.top     = cy + Math.sin(angle) * dist + 'px';
+      dot.style.opacity = '0';
+      dot.style.transform = 'translate(-50%, -50%) scale(0.15)';
+    });
+
+    setTimeout(() => dot.remove(), 540);
+  }
+}
+
+// ─── Flowing petals ───────────────────────────────────────
+(function () {
+  const petals = ['🌸', '🌷', '🌺', '🌼', '🪷', '💮', '🌹'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petals[Math.floor(Math.random() * petals.length)];
+    p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      animation-duration: ${10 + Math.random() * 14}s;
+      animation-delay: ${Math.random() * 16}s;
+      top: -40px;
+      font-size: ${0.8 + Math.random() * 0.9}rem;
+    `;
+    document.body.appendChild(p);
+  }
+})();
 
 // ─── Floating petals ─────────────────────────────────────
 (function() {
@@ -169,24 +251,23 @@ let count = 0;
   }
 })();
 
-
-function openJar() {
-  const text = document.getElementById("compliment");
-
-  // fade out
-  text.style.opacity = 0;
-  text.style.transform = "translateY(10px)";
-
-  setTimeout(() => {
-    const randomIndex = Math.floor(Math.random() * compliments.length);
-    text.innerText = compliments[randomIndex];
-
-    text.style.opacity = 1;
-    text.style.transform = "translateY(0)";
-
-    count++;
-    document.getElementById("count").innerText = count;
-
-  }, 300);
-}
+// ─── Scattered accent dots across background ─────────────
+(function(){
+  const accents = ['🌸','🌷','🌺','✿','❀','🌼'];
+  const positions = [
+    {top:'18%', left:'8%'},  {top:'32%', right:'6%'},
+    {top:'55%', left:'5%'},  {top:'70%', right:'9%'},
+    {top:'82%', left:'12%'}, {top:'45%', right:'4%'},
+    {top:'22%', right:'14%'},{top:'65%', left:'9%'},
+  ];
+  positions.forEach((pos, i) => {
+    const el = document.createElement('div');
+    el.className = 'bg-accent';
+    el.textContent = accents[i % accents.length];
+    el.style.cssText = Object.entries(pos).map(([k,v])=>`${k}:${v}`).join(';');
+    el.style.fontSize = (0.7 + Math.random() * 0.6) + 'rem';
+    el.style.opacity = (0.2 + Math.random() * 0.2).toFixed(2);
+    document.querySelector('.background-wrapper').appendChild(el);
+  });
+})();
 
